@@ -1,0 +1,20 @@
+@import './Header.scss';
+
+.flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.main {
+  background-color: red;
+  text-align: center;
+  border: 4px solid black;
+  border-radius: 7pt;
+  width: 50vw;
+}
+
+.yayImage {
+  height: 150px;
+  width: 150px;
+}
