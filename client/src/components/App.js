@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/css/App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
-import PostsIndex from '../components/PostsIndex';
+import PostsIndex from '../containers/PostsIndex';
 
 
 class App extends Component {

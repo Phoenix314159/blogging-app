@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise'
 import thunk from 'redux-thunk';
 import reducers from './reducers';
-import App from './containers/App';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(reducers, {}, applyMiddleware(thunk, promise));
