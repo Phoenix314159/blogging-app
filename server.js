@@ -5,7 +5,7 @@ require('./middleware/middleware')(app);
 if(process.env.NODE_ENV === 'production') {
     require('./middleware/prod')(app, express, config);
 }
-require('./routes/sampleRoute')(app);
+require('./routes/getPosts')(app);
 app.listen(config.port, () => {
     console.log(`listening on port ${config.port}`);
 })
