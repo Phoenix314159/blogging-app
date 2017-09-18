@@ -1,4 +1,5 @@
-const config = require('../config/config');
+const config = require('../config/config'),
+    axios = require('axios');
 
 module.exports = app => {
 

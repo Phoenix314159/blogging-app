@@ -1,54 +1,32 @@
 import React, {Component} from 'react';
 import '../styles/css/App.css';
-import {connect} from 'react-redux';
-import * as actions from '../actions';
-import Header from '../components/Header';
-import yayImage from '../imgs/yay.png';
+import {BrowserRouter, Route} from 'react-router-dom';
+class Hello extends Component {
+    render() {
+        return <div>Hello!</div>
+    }
+}
 
+class Goodbye extends Component {
+    render() {
+        return <div>Goodbye!</div>
+    }
+}
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.image = yayImage;
-
-    }
-
-    componentDidMount() {
-
-
-    }
 
     render() {
         return (
-            <div className="container centerHeader">
-                <Header/>
-                <img src={this.image} className="yayImage" alt="dude"/>
-                <div className="flex">
-                    <div className="main">
-                    <h2>Welcome to React</h2>
-                    <p>
-                        This is from the redux store: {this.props.dude}
-                    </p>
+            <BrowserRouter>
+                <div>
+                    <Route path="/hello" component={Hello}/>
+                    <Route path="/goodbye" component={Goodbye}/>
                 </div>
-            </div>
-            </div>
+            </BrowserRouter>
         );
     }
 }
 
 export default App;
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchData: url => dispatch(actions.dummyActionCreator1(url)),
-//         fetchString: string => dispatch(actions.dummyActionCreator2(string))
-//     };
-// };
-//
-// const mapStateToProps = ({something, dude}) => {
-//     return {something, dude}
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 
