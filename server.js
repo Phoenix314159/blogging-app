@@ -6,6 +6,7 @@ if(process.env.NODE_ENV === 'production') {
     require('./middleware/prod')(app, express, config);
 }
 require('./routes/getPosts')(app);
+require('./routes/addPosts')(app);
 app.listen(config.port, () => {
     console.log(`listening on port ${config.port}`);
 })
