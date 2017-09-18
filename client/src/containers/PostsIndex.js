@@ -9,7 +9,7 @@ class PostsIndex extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Posts Index</h1>
             </div>
         )
