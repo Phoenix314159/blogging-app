@@ -12,11 +12,13 @@ class PostsIndex extends Component {
     renderPosts() {
         return (
             _.map(this.props.posts, post => {
-                return (
-                    <li className="list-group-item" key={post.id}>
-                        {post.title}
-                    </li>
-                )
+                if (post.title !== null) {
+                    return (
+                        <li className="list-group-item" key={post.id}>
+                            {post.title}
+                        </li>
+                    )
+                }
             })
         )
     }
@@ -24,12 +26,12 @@ class PostsIndex extends Component {
     render() {
 
         return (
-            <div className="container">
-                <h3>Posts</h3>
+            <div className="container postsBorder">
+                <h3 className="text-center">Posts</h3>
                 <ul className="list-group">
                     {this.renderPosts()}
                 </ul>
-                <div className="text-xs-right">
+                <div className="text-center">
                     <Link className="btn btn-primary" to="/posts/new">
                         Add a post
                     </Link>
