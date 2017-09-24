@@ -10,10 +10,17 @@ export const fetchPosts = () => {
 }
 
 export const createPost = (values, callback) => {
-    const request = axios.post(`/api/addpost`, values)
-        .then(() => callback());
+    const request = axios.post(`/api/addpost`, values).then(() => callback());
     return {
         type: types.CREATE_POST,
+        payload: request
+    }
+}
+
+export const fetchPost = id => {
+    const request = axios.get(`/api/getpost?id=${id}`);
+    return {
+        type: types.FETCH_POST,
         payload: request
     }
 }
