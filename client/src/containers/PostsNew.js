@@ -1,17 +1,35 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {Link} from 'react-router-dom';
 
 class PostsNew extends Component {
     renderField(field) {
+        const {meta: {touched, error}} = field;
+        let className = `form-control ${touched && error ? 'redInput' : ''}`;
         return (
             <div className="form-group">
                 <label>{field.label}</label>
                 <input
-                    className="form-control"
+                    className={className}
                     type="text"
                     {...field.input}
                 />
-                <div className="error"> {field.meta.error}</div>
+                <div className="error"> {touched ? error : ''}</div>
+            </div>
+        )
+    }
+    renderContent(field) {
+        const {meta: {touched, error}} = field;
+        let className = `form-control ${touched && error ? 'redInput' : ''}`;
+        return (
+            <div className="form-group">
+                <label>{field.label}</label>
+                <textarea
+                    className={className}
+                    name="text" rows="10" cols="10" wrap="soft"
+                    {...field.input}
+                ></textarea>
+                <div className="error"> {touched ? error : ''}</div>
             </div>
         )
     }
@@ -38,9 +56,12 @@ class PostsNew extends Component {
                     <Field
                         label="Post Content"
                         name="content"
-                        component={this.renderField}
+                        component={this.renderContent}
                     />
-                    <button type="submit" className="btn btn-primary centerButton">Submit</button>
+                    <div className="centerButton">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <Link to="/" className="btn btn-danger">Cancel</Link>
+                    </div>
                 </form>
             </div>
         )
@@ -49,14 +70,14 @@ class PostsNew extends Component {
 
 const validate = values => {
     const errors = {};
-    if (!values.title || values.title.length < 3) {
-        errors.title = 'Enter a title that is at least 3 characters!';
+    if (!values.title) {
+        errors.title = 'Enter a title!';
     }
     if (!values.categories) {
         errors.categories = 'Enter some categories!';
     }
     if (!values.content) {
-        errors.content = 'Enter some content please!';
+        errors.content = 'Enter some content!';
     }
     return errors;
 }

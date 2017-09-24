@@ -1,16 +1,27 @@
 .error {
   color: red; }
 
+.redInput {
+  border: 2px solid red;
+  border-radius: 4px; }
+
 .formWidth {
   margin-top: 70px;
   display: flex;
   justify-content: center; }
 
 .centerButton {
-  margin-left: 5vw;
-  margin-top: 2vh; }
+  margin-top: 4vh; }
 
 .formBorder {
   border: 2px solid black;
   border-radius: 7pt;
   padding: 50px; }
+  .formBorder .form-group:nth-child(3) input {
+    height: 123px;
+    padding: 20px 3px 123px 3px;
+    word-wrap: break-word;
+    word-break: break-all; }
+
+form a {
+  margin-left: 5px; }
