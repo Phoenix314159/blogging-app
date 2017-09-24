@@ -1,20 +1,40 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchPost} from '../actions/index';
+import {fetchPost, deletePost} from '../actions/index';
+import {Link} from 'react-router-dom';
 
 class PostsShow extends Component {
+    constructor(props) {
+        super(props)
+        this.onDeleteClick = this.onDeleteClick.bind(this);
+    }
+
     componentDidMount() {
+        if (!this.props.post) {
+            const {id} = this.props.match.params;
+            this.props.fetchPost(id);
+        }
+    }
+
+    onDeleteClick() {
         const {id} = this.props.match.params;
-        this.props.fetchPost(id);
+        this.props.deletePost(id, () => {
+            this.props.history.push('/');
+        });
     }
 
     render() {
         const {post} = this.props;
-        if(!post) {
+        if (!post) {
             return <div>Loading...</div>
         }
         return (
             <div>
+                <Link to="/" className="btn btn-primary">Back To List of Posts</Link>
+                <button
+                    className="btn btn-danger pull-xs-right"
+                    onClick={this.onDeleteClick}
+                >Delete Post</button>
                 <h3>{post.title}</h3>
                 <h6>Categories: {post.categories}</h6>
                 <p>{post.content}</p>
@@ -25,4 +45,4 @@ class PostsShow extends Component {
 const mapStateToProps = ({posts}, ownProps) => {
     return {post: posts[ownProps.match.params.id]};
 }
-export default connect(mapStateToProps, {fetchPost})(PostsShow);
+export default connect(mapStateToProps, {fetchPost, deletePost})(PostsShow);

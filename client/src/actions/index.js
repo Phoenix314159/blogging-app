@@ -25,3 +25,11 @@ export const fetchPost = id => {
     }
 }
 
+export const deletePost = (id, callback) => {
+    const request = axios.delete(`/api/deletepost?id=${id}`).then(() => callback());
+    return {
+        type: types.DELETE_POST,
+        payload: id
+    }
+}
+
