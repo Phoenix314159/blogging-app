@@ -1,11 +1,12 @@
 import { types } from './types';
 import axios from 'axios';
 
-export const fetchPosts =  () =>  {
+export const fetchPosts = () =>  {
     const request = axios.get(`/api/getposts`);
+    console.log(request);
     return {
         type: types.FETCH_POSTS,
-        payload: request.data
+        payload: request
     }
 }
 
