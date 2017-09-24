@@ -24,7 +24,6 @@ class PostsIndex extends Component {
     }
 
     render() {
-
         return (
             <div className="container postsBorder">
                 <h3 className="text-center">Posts</h3>
