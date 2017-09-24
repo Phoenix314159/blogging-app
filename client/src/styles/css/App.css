@@ -31,3 +31,13 @@ form a {
   border: 2px solid black;
   border-radius: 7pt;
   padding-bottom: 2%; }
+
+.singlePost {
+  display: inline-block;
+  margin-left: 38vw;
+  margin-top: 15vh;
+  padding: 1%;
+  border: 2px solid black;
+  border-radius: 7pt; }
+  .singlePost button {
+    margin-left: 5px; }

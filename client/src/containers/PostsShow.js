@@ -29,15 +29,18 @@ class PostsShow extends Component {
             return <div>Loading...</div>
         }
         return (
-            <div>
+            <div className="singlePost">
+                <h2>Title</h2>
+                <h3>{post.title}</h3>
+                <h2>Categories</h2>
+                <h3>{post.categories}</h3>
+                <h2>Content</h2>
+                <p>{post.content}</p>
                 <Link to="/" className="btn btn-primary">Back To List of Posts</Link>
                 <button
                     className="btn btn-danger pull-xs-right"
                     onClick={this.onDeleteClick}
                 >Delete Post</button>
-                <h3>{post.title}</h3>
-                <h6>Categories: {post.categories}</h6>
-                <p>{post.content}</p>
             </div>
         )
     }
