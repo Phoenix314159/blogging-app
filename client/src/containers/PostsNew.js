@@ -64,7 +64,7 @@ class PostsNew extends Component {
                         name="content"
                         component={this.renderContent}
                     />
-                    <div className="centerButton">
+                    <div className="centerButtons">
                         <button type="submit" className="btn btn-primary">Submit</button>
                         <Link to="/" className="btn btn-danger">Cancel</Link>
                     </div>

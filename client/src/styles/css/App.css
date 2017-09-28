@@ -10,19 +10,24 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  background-blend-mode: darken;
   background-size: cover;
-  height: 100vh; }
+  margin: 0;
+  padding: 0; }
 
 .formWidth {
-  margin-top: 70px;
+  margin-top: 20vh;
   display: flex;
   justify-content: center; }
+  .formWidth label {
+    color: whitesmoke; }
 
-.centerButton {
+.centerButtons {
+  display: flex;
+  justify-content: center;
   margin-top: 4vh; }
 
 .formBorder {
+  background-color: #4a148c;
   border: 2px solid black;
   border-radius: 7pt;
   padding: 50px; }
@@ -36,7 +41,7 @@ form a {
   margin-left: 5px; }
 
 .postsBorder {
-  margin-top: 22vh;
+  margin-top: 20vh;
   border: 2px solid black;
   border-radius: 7pt;
   padding-bottom: 2%;
@@ -50,12 +55,19 @@ form a {
 
 .singlePost {
   background-color: whitesmoke;
-  display: inline-block;
-  margin-left: 38vw;
-  margin-top: 15vh;
+  width: 40%;
   padding: 1%;
   border: 2px solid black;
   border-radius: 7pt;
   text-align: center; }
+  .singlePost hr.one {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5); }
+  .singlePost hr.two {
+    border-top: 1px dashed #8c8b8b;
+    margin-bottom: 3vh; }
   .singlePost button {
     margin-left: 5px; }
+  .singlePost p {
+    margin-bottom: 5vh; }
