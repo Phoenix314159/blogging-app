@@ -5,6 +5,15 @@
   border: 2px solid red;
   border-radius: 4px; }
 
+body {
+  background-image: url("https://wallpaperbrowse.com/media/images/518164-backgrounds.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: darken;
+  background-size: cover;
+  height: 100vh; }
+
 .formWidth {
   margin-top: 70px;
   display: flex;
