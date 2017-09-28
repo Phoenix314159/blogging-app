@@ -24,6 +24,9 @@ body {
   label {
     color: whitesmoke;
   }
+  .form-group {
+    text-align: center;
+  }
 }
 
 .centerButtons {
@@ -54,6 +57,7 @@ body {
 }
 .navbar {
   border: 2px solid ghostwhite;
+  border-radius: 7pt;
   width: 60%;
   button {
     position: relative;

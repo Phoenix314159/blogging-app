@@ -50,7 +50,7 @@ class PostsNew extends Component {
             <div className="formWidth">
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="formBorder">
                     <Field
-                        label="Title For Post"
+                        label="Title"
                         name="title"
                         component={this.renderField}
                     />
@@ -60,7 +60,7 @@ class PostsNew extends Component {
                         component={this.renderField}
                     />
                     <Field
-                        label="Post Content"
+                        label="Content"
                         name="content"
                         component={this.renderContent}
                     />

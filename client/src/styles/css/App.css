@@ -20,6 +20,8 @@ body {
   justify-content: center; }
   .formWidth label {
     color: whitesmoke; }
+  .formWidth .form-group {
+    text-align: center; }
 
 .centerButtons {
   display: flex;
@@ -44,6 +46,7 @@ body {
 
 .navbar {
   border: 2px solid ghostwhite;
+  border-radius: 7pt;
   width: 60%; }
   .navbar button {
     position: relative;
