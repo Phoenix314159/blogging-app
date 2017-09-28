@@ -2,11 +2,11 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchPosts} from '../actions/index';
+import * as actions from '../actions/index';
 
 class PostsIndex extends Component {
     componentDidMount() {
-        this.props.fetchPosts();
+        this.props.fetchPosts('/api/getposts');
     }
 
     renderPosts() {
@@ -45,5 +45,10 @@ class PostsIndex extends Component {
 const mapStateToProps = state => {
     return {posts: state.posts}
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPosts: url => dispatch(actions.fetchPosts(url))
+    };
+};
 
-export default connect(mapStateToProps, {fetchPosts})(PostsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);

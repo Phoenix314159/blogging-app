@@ -6,6 +6,7 @@ export default (state = {}, action) => {
         case types.FETCH_POST:
             return {...state, [action.payload.data.id]: action.payload.data};
         case types.FETCH_POSTS:
+            console.log(action.payload.data)
             return _.mapKeys(action.payload.data, 'id');
         case types.DELETE_POST:
             return _.omit(state, action.payload);
