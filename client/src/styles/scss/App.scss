@@ -18,7 +18,7 @@ body {
 }
 
 .formWidth {
-  margin-top: 20vh;
+  margin-top: 14vh;
   display: flex;
   justify-content: center;
   label {
@@ -47,13 +47,25 @@ body {
     }
   }
 }
-
+.navBar {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+.navbar {
+  border: 2px solid ghostwhite;
+  width: 60%;
+  button {
+    position: relative;
+    right: 1vw;
+  }
+}
 form a {
   margin-left: 5px;
 }
 
 .postsBorder {
-  margin-top: 20vh;
+  margin-top: 14vh;
   border: 2px solid black;
   border-radius: 7pt;
   padding-bottom: 2%;
