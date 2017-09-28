@@ -29,7 +29,7 @@ class PostsIndex extends Component {
         return (
             <div className="container postsBorder">
                 <h3 className="text-center">Posts</h3>
-                <ul className="list-group">
+                <ul className="list-group totalPosts">
                     {this.renderPosts()}
                 </ul>
                 <div className="text-center">

@@ -32,10 +32,13 @@ class PostsShow extends Component {
         return (
             <div className="singlePost">
                 <h2>Title</h2>
+                <hr/>
                 <h3>{post.title}</h3>
                 <h2>Categories</h2>
+                <hr/>
                 <h3>{post.categories}</h3>
                 <h2>Content</h2>
+                <hr/>
                 <p>{post.content}</p>
                 <Link to="/" className="btn btn-primary">Back To List of Posts</Link>
                 <button
