@@ -32,7 +32,8 @@ body {
   background-color: #4a148c;
   border: 2px solid black;
   border-radius: 7pt;
-  padding: 50px; }
+  padding: 50px;
+  box-shadow: 10px 10px; }
   .formBorder .form-group:nth-child(3) input {
     height: 123px;
     padding: 20px 3px 123px 3px;
@@ -61,7 +62,8 @@ form a {
   border-radius: 7pt;
   padding-bottom: 2%;
   padding-top: 1%;
-  background-color: #4a148c; }
+  background-color: #4a148c;
+  box-shadow: 10px 10px; }
   .postsBorder h3 {
     color: whitesmoke; }
 
@@ -74,7 +76,8 @@ form a {
   padding: 1%;
   border: 2px solid black;
   border-radius: 7pt;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 10px 10px; }
   .singlePost hr.one {
     height: 12px;
     border: 0;

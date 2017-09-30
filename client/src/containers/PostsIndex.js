@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import * as actions from '../actions/index';
+import {fetchPosts} from '../actions/index';
 
 class PostsIndex extends Component {
     componentDidMount() {
@@ -47,7 +47,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPosts: url => dispatch(actions.fetchPosts(url))
+        fetchPosts: url => dispatch(fetchPosts(url))
     };
 };
 

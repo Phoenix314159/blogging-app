@@ -37,7 +37,7 @@ export const deletePost = (id, callback) => async dispatch => {
 
 export const login = user => async dispatch => {
     const request = await axios.post(`/api/login`, user);
-    return({
+    return dispatch({
         type: types.LOGIN,
         payload: user
     })
