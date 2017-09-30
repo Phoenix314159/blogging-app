@@ -1,3 +1,31 @@
-/**
- * Created by PhantomPhoenix on 9/29/2017.
- */
+const passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    bcrypt = require('bcryptjs');
+
+const verifyPassword = (submittedPassword, userPassword) => {
+    return bcrypt.compareSync(submittedPassword, userPassword);
+}
+
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+passport.deserializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.use(new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password'
+}, (username, password, done) => {
+    username = username.toLowerCase();
+    db.read_username([username], (err, user) => {
+        user = user[0];
+        if (err) done(err);
+        if (!user) return done(null, false);
+        if (verifyPassword(password, user.password)) {
+            delete user.password;
+            return done(null, user);
+        }
+        return done(null, false);
+    });
+}));
