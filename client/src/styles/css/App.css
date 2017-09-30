@@ -1,5 +1,6 @@
 .error {
-  color: red; }
+  color: red;
+  margin-top: 8px; }
 
 .redInput {
   border: 2px solid red;

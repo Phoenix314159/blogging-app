@@ -35,11 +35,11 @@ export const deletePost = (id, callback) => async dispatch => {
     })
 }
 
-export const login = user => async dispatch => {
+export const login = (user, callback) => async dispatch => {
     const request = await axios.post(`/api/login`, user);
+    callback();
     return dispatch({
-        type: types.LOGIN,
-        payload: user
+        type: types.LOGIN
     })
 }
 

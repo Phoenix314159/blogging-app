@@ -4,8 +4,12 @@ import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form';
 import {login} from '../actions/index';
 
-
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
     renderField(field) {
         const {meta: {touched, error}} = field;
         let className = `form-control ${touched && error ? 'redInput' : ''}`;
@@ -23,7 +27,6 @@ class Login extends Component {
     }
     onSubmit(values) {
         this.props.login(values, () => {
-            console.log(values)
             this.props.history.push('/');
         });
     }
@@ -33,7 +36,7 @@ class Login extends Component {
         return(
             <div>
                 <div className="formWidth">
-                    <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="formBorder">
+                    <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
                         <Field
                             label="Username"
                             name="username"
@@ -57,17 +60,17 @@ class Login extends Component {
 const validate = values => {
     const errors = {};
     if (!values.username) {
-        errors.title = 'Enter a username';
+        errors.username = 'Enter a username';
     }
     if (!values.password) {
-        errors.categories = 'Enter some categories!';
+        errors.password = 'Enter a password';
     }
     return errors;
 }
 
 export default reduxForm({
     validate,
-    form: 'LoginForm'
+    form: 'PostsNewForm'
 })(
     connect(null, {login})(Login)
 );

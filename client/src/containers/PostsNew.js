@@ -5,6 +5,10 @@ import {connect} from 'react-redux';
 import {createPost} from '../actions/index';
 
 class PostsNew extends Component {
+    constructor(props){
+        super(props)
+        this.onSubmit = this.onSubmit.bind(this);
+    }
     renderField(field) {
         const {meta: {touched, error}} = field;
         let className = `form-control ${touched && error ? 'redInput' : ''}`;
@@ -47,7 +51,7 @@ class PostsNew extends Component {
         const {handleSubmit} = this.props;
         return (
             <div className="formWidth">
-                <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="formBorder">
+                <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
                     <Field
                         label="Title"
                         name="title"
