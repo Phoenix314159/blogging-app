@@ -14,7 +14,7 @@ class Nav extends Component {
                             <li></li>
                             <li><Link to="/posts/new">Create a Post</Link></li>
                         </ul>
-                        <button type="button" className="btn btn-primary navbar-btn navbar-right">Sign in</button>
+                        <Link to="/login"><button type="button" className="btn btn-primary navbar-btn navbar-right">Sign in</button></Link>
                     </div>
                 </nav>
             </div>

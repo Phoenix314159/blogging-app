@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import PostsIndex from '../containers/PostsIndex';
 import PostsNew from '../containers/PostsNew';
 import PostsShow from '../containers/PostsShow';
+import Login from '../containers/Login';
 import Nav from '../containers/Nav';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/posts/new" component={PostsNew}/>
                         <Route path="/posts/:id" component={PostsShow}/>
+                        <Route path="/login" component={Login}/>
                         <Route path="/" component={PostsIndex}/>
                     </Switch>
                 </div>
