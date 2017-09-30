@@ -1,6 +1,9 @@
 const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    bcrypt = require('bcryptjs');
+    bcrypt = require('bcryptjs'),
+    mongoose = require('mongoose'),
+    User = mongoose.model('users');
+
 
 const verifyPassword = (submittedPassword, userPassword) => {
     return bcrypt.compareSync(submittedPassword, userPassword);
@@ -16,16 +19,18 @@ passport.deserializeUser((user, done) => {
 passport.use(new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
-}, (username, password, done) => {
+}, async (username, password,  done) => {
     username = username.toLowerCase();
-    db.read_username([username], (err, user) => {
-        user = user[0];
-        if (err) done(err);
+    let existingUser = await User.findOne({ username }, (err, user) => {
+        if (err) return done(err);
         if (!user) return done(null, false);
-        if (verifyPassword(password, user.password)) {
-            delete user.password;
-            return done(null, user);
-        }
-        return done(null, false);
-    });
+    })
+    if (existingUser && verifyPassword(password)) {
+        return done(null, existingUser);
+    }
+    done(null, user)
+
 }));
+
+
+module.exports = passport;
