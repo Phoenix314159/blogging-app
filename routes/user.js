@@ -13,22 +13,22 @@ module.exports = app => {
     app.use(passport.session());
 
     app.post('/api/login', passport.authenticate('local', {
-        successRedirect: '/api/me',
+        successRedirect: '/api/user',
         failureRedirect: '/api/error',
         failureFlash: true
     }));
 
-    app.get('/api/logout', (req, res) => {
-        req.logout();
-        res.send('logged out');
-    });
-
-    app.get('/api/me', (req, res) => {
+    app.get('/api/user', (req, res) => {
         return res.status(200).send(req.user);
     });
     app.get('/api/error', (req, res) => {
         res.status(200).send("error")
     })
+
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.send('logged out');
+    });
 
     app.post('/api/adduser', (req, res) => {
         new User({

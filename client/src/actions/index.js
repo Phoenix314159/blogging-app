@@ -1,8 +1,8 @@
 import {types} from './types';
 import axios from 'axios';
 
-export const fetchPosts = (url, userid) => async dispatch => {
-    const request = await axios.get(`${url}?userid=${userid}`);
+export const fetchPosts = url => async dispatch => {
+    const request = await axios.get(url);
     return dispatch({
         type: types.FETCH_POSTS,
         payload: request
