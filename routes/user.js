@@ -22,12 +22,12 @@ module.exports = app => {
         return res.status(200).send(req.user);
     });
     app.get('/api/error', (req, res) => {
-        res.status(200).send("error")
+        return res.status(200).send("error")
     });
 
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.send('logged out');
+        return res.send('logged out');
     });
 
     app.post('/api/adduser', (req, res) => {
@@ -37,6 +37,6 @@ module.exports = app => {
             username: req.body.username,
             password: hashPass(req.body.password)
         }).save();
-        res.status(200).send(req.user);
+        return res.status(200).send(req.user);
     });
 };

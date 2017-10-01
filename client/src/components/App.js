@@ -8,6 +8,7 @@ import PostsShow from '../containers/PostsShow';
 import Login from '../containers/Login';
 import Nav from '../containers/Nav';
 import AddUser from '../containers/AddUser';
+import Welcome from '../containers/Welcome';
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Nav/>
+                    <Welcome/>
                     <Switch>
                         <Route path="/posts/new" component={PostsNew}/>
                         <Route path="/posts/:id" component={PostsShow}/>

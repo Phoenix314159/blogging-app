@@ -19,7 +19,7 @@ body {
   color: ghostwhite; }
 
 .formWidth {
-  margin-top: 14vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center; }
   .formWidth label {
@@ -34,6 +34,16 @@ body {
 
 .centerButtons2 {
   margin-right: 10px; }
+
+.welcomeHeader {
+  display: flex;
+  justify-content: center;
+  background-color: ghostwhite;
+  border: 2px solid black;
+  border-radius: 7pt;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  box-shadow: 10px 10px; }
 
 .formBorder {
   background-color: #4a148c;
@@ -71,7 +81,7 @@ form a {
   margin-left: 5px; }
 
 .postsBorder {
-  margin-top: 14vh;
+  margin-top: 10vh;
   border: 2px solid black;
   border-radius: 7pt;
   padding-bottom: 2%;
