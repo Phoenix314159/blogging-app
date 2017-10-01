@@ -3,7 +3,8 @@ const initialState = {
     loggedIn: false,
     newUser: false,
     currentUser: false,
-    signUp: false
+    signUp: false,
+    userId: null
 }
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -12,7 +13,7 @@ export default (state = initialState, action) => {
                 alert("You Must Create an Account First")
                 return state;
             } else {
-                return Object.assign({}, state, {loggedIn: true, currentUser: true});
+                return Object.assign({}, state, {loggedIn: true, currentUser: true, userId: action.payload._id});
             }
         case types.LOGGED_OUT:
             return Object.assign({}, state, {loggedIn: false, newUser: false, currentUser: false});

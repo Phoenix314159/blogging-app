@@ -5,11 +5,13 @@ import {Link} from 'react-router-dom';
 import {fetchPosts} from '../actions';
 
 class PostsIndex extends Component {
+
     componentDidMount() {
-        this.props.fetchPosts('/api/getposts');
+        this.props.fetchPosts(`/api/getposts`);
     }
 
     renderPosts() {
+        console.log(this.props.auth)
         if (this.props.auth.loggedIn && this.props.auth.currentUser) {
             return (
                 _.map(this.props.posts, post => {

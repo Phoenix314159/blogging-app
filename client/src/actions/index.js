@@ -1,8 +1,8 @@
 import {types} from './types';
 import axios from 'axios';
 
-export const fetchPosts = url => async dispatch => {
-    const request = await axios.get(url);
+export const fetchPosts = (url, userid) => async dispatch => {
+    const request = await axios.get(`${url}?userid=${userid}`);
     return dispatch({
         type: types.FETCH_POSTS,
         payload: request
@@ -37,6 +37,7 @@ export const deletePost = (id, callback) => async dispatch => {
 
 export const login = (user, callback) => async dispatch => {
     const request = await axios.post(`/api/login`, user);
+    console.log(request)
     callback();
     return dispatch({
         type: types.LOGGED_IN,
