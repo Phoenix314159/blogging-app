@@ -14,7 +14,7 @@ module.exports = app => {
 
     app.post('/api/login', passport.authenticate('local', {
         successRedirect: '/api/me',
-        failureRedirect: '/login',
+        failureRedirect: '/api/error',
         failureFlash: true
     }));
 
@@ -26,6 +26,9 @@ module.exports = app => {
     app.get('/api/me', (req, res) => {
         return res.status(200).send(req.user);
     });
+    app.get('/api/error', (req, res) => {
+        res.status(200).send("error")
+    })
 
     app.post('/api/adduser', (req, res) => {
         new User({

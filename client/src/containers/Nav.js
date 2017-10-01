@@ -14,7 +14,7 @@ class Nav extends Component {
                             <Link to="/" className="navbar-brand">Blogger</Link>
                         </div>
                         <ul className="nav navbar-nav">
-                            <li className={(this.props.auth.newUser ? 'hidden' : 'show')}>
+                            <li className={(this.props.auth.loggedIn && this.props.auth.currentUser ? 'hidden' : 'show')}>
                                 <Link to="/adduser">Create an Account</Link></li>
                         </ul>
                         <LogButton/>

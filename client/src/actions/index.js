@@ -40,7 +40,7 @@ export const login = (user, callback) => async dispatch => {
     callback();
     return dispatch({
         type: types.LOGGED_IN,
-        payload: request
+        payload: request.data
     })
 }
 

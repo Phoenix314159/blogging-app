@@ -10,11 +10,11 @@ class LogButton extends Component {
     }
 
     onLogout() {
-        console.log(this.props);
         this.props.logout();
     }
 
     render() {
+        console.log(this.props);
         if (this.props.auth.loggedIn) {
             return (
                 <Link to="/">

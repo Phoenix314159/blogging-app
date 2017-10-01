@@ -10,7 +10,7 @@ class PostsIndex extends Component {
     }
 
     renderPosts() {
-        if (this.props.auth.loggedIn) {
+        if (this.props.auth.loggedIn && this.props.auth.currentUser) {
             return (
                 _.map(this.props.posts, post => {
                     if (post.title !== null) {
@@ -52,11 +52,8 @@ class PostsIndex extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        posts: state.posts,
-        auth: state.auth
-    }
+const mapStateToProps = ({posts, auth}) => {
+    return {posts, auth}
 }
 const mapDispatchToProps = dispatch => {
     return {
