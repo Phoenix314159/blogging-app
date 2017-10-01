@@ -8,8 +8,9 @@ class PostsIndex extends Component {
     componentDidMount() {
         this.props.fetchPosts('/api/getposts');
     }
+
     renderPosts() {
-        if(this.props.auth.loggedIn) {
+        if (this.props.auth.loggedIn) {
             return (
                 _.map(this.props.posts, post => {
                     if (post.title !== null) {
@@ -24,29 +25,29 @@ class PostsIndex extends Component {
                 })
             )
         }
-        return(
+        return (
             <div>
                 <h1 className="textWhite">Welcome to Blogger</h1>
             </div>
         )
 
     }
-    render() {
-        console.log(this.props.auth.loggedIn);
 
-            return (
-                <div className="container postsBorder">
-                    <h3 className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>Posts</h3>
-                    <ul className="list-group totalPosts">
-                        {this.renderPosts()}
-                    </ul>
-                    <div className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')} >
-                        <Link className="btn btn-primary" to="/posts/new">
-                            Add a post
-                        </Link>
-                    </div>
+    render() {
+
+        return (
+            <div className="container postsBorder">
+                <h3 className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>Posts</h3>
+                <ul className="list-group totalPosts">
+                    {this.renderPosts()}
+                </ul>
+                <div className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>
+                    <Link className="btn btn-primary" to="/posts/new">
+                        Add a post
+                    </Link>
                 </div>
-            )
+            </div>
+        )
 
     }
 }

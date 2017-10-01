@@ -27,7 +27,7 @@ class AddUser extends Component {
     }
     onSubmit(values) {
         this.props.addUser(values, () => {
-            this.props.history.push('/');
+            this.props.history.push('/login');
         });
     }
 

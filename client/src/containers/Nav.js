@@ -14,8 +14,8 @@ class Nav extends Component {
                             <Link to="/" className="navbar-brand">Blogger</Link>
                         </div>
                         <ul className="nav navbar-nav">
-                            <li></li>
-                            <li><Link to="/posts/new">Create a Post</Link></li>
+                            <li className={(this.props.auth.newUser ? 'hidden' : 'show')}>
+                                <Link to="/adduser">Create an Account</Link></li>
                         </ul>
                         <LogButton/>
                     </div>
