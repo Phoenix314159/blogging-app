@@ -43,3 +43,11 @@ export const login = (user, callback) => async dispatch => {
     })
 }
 
+export const addUser = (user, callback) => async dispatch => {
+    const request = await axios.post('/api/adduser', user);
+    callback();
+    return dispatch({
+        type: types.ADD_USER
+    })
+}
+

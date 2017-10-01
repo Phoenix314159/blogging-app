@@ -41,6 +41,7 @@ body {
   border: 2px solid black;
   border-radius: 7pt;
   padding: 50px;
+  box-shadow: 10px 10px;
   .form-group:nth-child(3) {
     input {
       height: 123px;
@@ -50,6 +51,12 @@ body {
 
     }
   }
+}
+.addUserForm {
+  background-color: #4a148c;
+  border: 2px solid black;
+  border-radius: 7pt;
+  padding: 50px;
   box-shadow: 10px 10px;
 }
 .navBar {

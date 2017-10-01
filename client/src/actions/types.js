@@ -3,5 +3,6 @@ export const types = {
     CREATE_POST: 'create_post',
     FETCH_POST: 'fetch_post',
     DELETE_POST: 'delete_post',
-    LOGIN: 'login'
+    LOGIN: 'login',
+    ADD_USER: 'add_user'
 };

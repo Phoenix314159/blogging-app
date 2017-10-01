@@ -22,14 +22,12 @@ module.exports = app => {
         return res.status(200).send(req.user);
     });
 
-    app.post('/api/newuser', (req, res) => {
-        req.body.password = hashPass(req.body.password);
-        req.body.emailAddress = req.body.emailAddress.toLowerCase();
+    app.post('/api/adduser', (req, res) => {
         new User({
             name: req.body.name,
-            emailAddress: req.body.emailAddress,
+            emailAddress: req.body.emailAddress.toLowerCase(),
             username: req.body.username,
-            password: req.body.password
+            password: hashPass(req.body.password)
         }).save();
         res.status(200).send(req.user);
     });

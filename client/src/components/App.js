@@ -7,6 +7,7 @@ import PostsNew from '../containers/PostsNew';
 import PostsShow from '../containers/PostsShow';
 import Login from '../containers/Login';
 import Nav from '../containers/Nav';
+import AddUser from '../containers/AddUser';
 
 class App extends Component {
     render() {
@@ -18,6 +19,7 @@ class App extends Component {
                         <Route path="/posts/new" component={PostsNew}/>
                         <Route path="/posts/:id" component={PostsShow}/>
                         <Route path="/login" component={Login}/>
+                        <Route path="/adduser" component={AddUser}/>
                         <Route path="/" component={PostsIndex}/>
                     </Switch>
                 </div>

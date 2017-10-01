@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form';
-import {login} from '../actions/index';
+import {addUser} from '../actions/index';
 
-class Login extends Component {
+class AddUser extends Component {
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
@@ -26,7 +26,7 @@ class Login extends Component {
         )
     }
     onSubmit(values) {
-        this.props.login(values, () => {
+        this.props.addUser(values, () => {
             this.props.history.push('/');
         });
     }
@@ -36,7 +36,17 @@ class Login extends Component {
         return(
             <div>
                 <div className="formWidth">
-                    <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
+                    <form onSubmit={handleSubmit(this.onSubmit)} className="addUserForm">
+                        <Field
+                            label="Name"
+                            name="name"
+                            component={this.renderField}
+                        />
+                        <Field
+                            label="Email Address"
+                            name="emailAddress"
+                            component={this.renderField}
+                        />
                         <Field
                             label="Username"
                             name="username"
@@ -48,7 +58,7 @@ class Login extends Component {
                             component={this.renderField}
                         />
                         <div className="centerButtons">
-                            <button type="submit" className="btn btn-primary">Login</button>
+                            <button type="submit" className="btn btn-primary">Sign Up</button>
                             <Link to="/" className="btn btn-danger">Cancel</Link>
                         </div>
                     </form>
@@ -59,18 +69,25 @@ class Login extends Component {
 }
 const validate = values => {
     const errors = {};
+    if (!values.name) {
+        errors.name = 'Enter a Name';
+    }
+    if (!values.emailAddress) {
+        errors.emailAddress = 'Enter an Email Address';
+    }
     if (!values.username) {
-        errors.username = 'Enter a username';
+        errors.username = 'Enter a Username';
     }
     if (!values.password) {
-        errors.password = 'Enter a password';
+        errors.password = 'Enter a Password';
     }
     return errors;
 }
 
 export default reduxForm({
     validate,
-    form: 'LoginForm'
+    form: 'SignUpForm'
 })(
-    connect(null, {login})(Login)
+    connect(null, {addUser})(AddUser)
 );
+
