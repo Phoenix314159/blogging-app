@@ -3,20 +3,20 @@ const express = require('express'),
     app = express(),
     mongoose = require('mongoose');
 
-require('./models/user');
-require('./middleware/middleware')(app);
-
 mongoose.connect(config.mongoURI);
+require('./models/user');
+require('./services/passport');
+require('./middleware/middleware')(app);
 
 if(process.env.NODE_ENV === 'production') {
     require('./middleware/prod')(app, express, config);
 }
-
+require('./routes/user')(app);
 require('./routes/getPosts')(app);
 require('./routes/addPosts')(app);
 require('./routes/getPost')(app);
 require('./routes/deletePost')(app);
-require('./routes/user')(app);
+
 
 app.listen(config.port, () => {
     console.log(`listening on port ${config.port}`);
