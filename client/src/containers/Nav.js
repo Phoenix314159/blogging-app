@@ -7,11 +7,14 @@ class Nav extends Component {
 
     render() {
         return (
-            <div className="navBar">
+            <div className="animated flipInX navBar">
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            <Link to="/" className="navbar-brand">Blogger</Link>
+                            <Link to="/">
+                                <button className="navbar-btn btn btn-primary button1">
+                                    Home</button>
+                            </Link>
                         </div>
                         <div className="centerButtons2">
                             <div

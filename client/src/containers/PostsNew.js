@@ -50,7 +50,7 @@ class PostsNew extends Component {
     render() {
         const {handleSubmit} = this.props;
         return (
-            <div className="formWidth">
+            <div className="animated fadeIn formWidth">
                 <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
                     <Field
                         label="Title"

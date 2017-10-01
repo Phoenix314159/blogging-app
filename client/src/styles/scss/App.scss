@@ -1,3 +1,5 @@
+$shadow: 10px 10px;
+
 .error {
   color: red;
   margin-top: 8px;
@@ -49,7 +51,19 @@ body {
   border-radius: 7pt;
   margin-left: 40vw;
   margin-right: 40vw;
-  box-shadow: 10px 10px;
+  box-shadow: $shadow;
+  margin-top: 5vh;
+}
+.noAccountHeader {
+  display: flex;
+  justify-content: center;
+  background-color: ghostwhite;
+  border: 2px solid black;
+  border-radius: 7pt;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  box-shadow: $shadow;
+  margin-top: 5vh;
 }
 
 .formBorder {
@@ -73,21 +87,26 @@ body {
   border: 2px solid black;
   border-radius: 7pt;
   padding: 50px;
-  box-shadow: 10px 10px;
+  box-shadow: $shadow;
 }
 .navBar {
   display: flex;
   justify-content: center;
   margin-top: 2vh;
+  .button1{
+    margin-left: 15px;
+  }
 }
 .navbar {
   border: 2px solid ghostwhite;
   border-radius: 7pt;
   width: 60%;
+  background-color: #0c5460;
   button {
     position: relative;
     right: 1vw;
   }
+  box-shadow: $shadow;
 }
 form a {
   margin-left: 5px;
@@ -103,7 +122,7 @@ form a {
   h3 {
     color: whitesmoke;
   }
-  box-shadow: 10px 10px;
+  box-shadow: $shadow;
 }
 
 .totalPosts {
@@ -117,7 +136,7 @@ form a {
   border: 2px solid black;
   border-radius: 7pt;
   text-align: center;
-  box-shadow: 10px 10px;
+  box-shadow: $shadow;
   hr.one {
     height: 12px;
     border: 0;

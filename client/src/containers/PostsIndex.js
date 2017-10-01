@@ -37,7 +37,7 @@ class PostsIndex extends Component {
     render() {
 
         return (
-            <div className="container postsBorder">
+            <div className={"animated fadeIn container postsBorder " + (!this.props.auth.userAlert ? 'show' : 'hidden')}>
                 <h3 className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>Posts</h3>
                 <ul className="list-group totalPosts">
                     {this.renderPosts()}

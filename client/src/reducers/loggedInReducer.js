@@ -5,21 +5,21 @@ const initialState = {
     currentUser: false,
     signUp: false,
     userId: null,
-    name: null
+    name: null,
+    userAlert: false
 }
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.LOGGED_IN:
             if(action.payload === "error"){
-                alert("You Must Create an Account First")
-                return state;
+                return Object.assign({}, state, {userAlert: true});
             } else {
                 return Object.assign({}, state, {loggedIn: true, currentUser: true, userId: action.payload._id, name: action.payload.name});
             }
         case types.LOGGED_OUT:
-            return Object.assign({}, state, {loggedIn: false, newUser: false, currentUser: false, userId: null, name:null});
+            return Object.assign({}, state, {loggedIn: false, newUser: false, currentUser: false, userId: null, name:null, userAlert: false});
         case types.ADD_USER:
-            return Object.assign({}, state, {newUser: true, signUp: true});
+            return Object.assign({}, state, {newUser: true, signUp: true, userAlert: false});
         default:
             return state;
     }

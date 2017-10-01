@@ -1,4 +1,5 @@
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/animate.css";
 import '../styles/css/App.css';
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';

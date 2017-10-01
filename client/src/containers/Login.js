@@ -8,6 +8,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+
     }
 
     renderField(field) {
@@ -25,17 +26,19 @@ class Login extends Component {
             </div>
         )
     }
+
     onSubmit(values) {
         this.props.login(values, () => {
-            this.props.history.push('/');
+            this.props.history.push('/')
         });
+
     }
 
     render() {
         const {handleSubmit} = this.props;
-        return(
+        return (
             <div>
-                <div className="formWidth">
+                <div className="animated fadeIn formWidth">
                     <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
                         <Field
                             label="Username"
@@ -67,10 +70,12 @@ const validate = values => {
     }
     return errors;
 }
-
+const mapStateToProps = ({auth}) => {
+    return {auth}
+}
 export default reduxForm({
     validate,
     form: 'LoginForm'
 })(
-    connect(null, {login})(Login)
+    connect(mapStateToProps, {login})(Login)
 );
