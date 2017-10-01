@@ -23,7 +23,7 @@ module.exports = app => {
     });
     app.get('/api/error', (req, res) => {
         res.status(200).send("error")
-    })
+    });
 
     app.get('/api/logout', (req, res) => {
         req.logout();
@@ -39,4 +39,4 @@ module.exports = app => {
         }).save();
         res.status(200).send(req.user);
     });
-}
+};

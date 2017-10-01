@@ -11,7 +11,6 @@ class PostsIndex extends Component {
     }
 
     renderPosts() {
-        console.log(this.props.auth)
         if (this.props.auth.loggedIn && this.props.auth.currentUser) {
             return (
                 _.map(this.props.posts, post => {

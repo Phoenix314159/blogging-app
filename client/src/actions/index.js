@@ -37,7 +37,6 @@ export const deletePost = (id, callback) => async dispatch => {
 
 export const login = (user, callback) => async dispatch => {
     const request = await axios.post(`/api/login`, user);
-    console.log(request)
     callback();
     return dispatch({
         type: types.LOGGED_IN,
