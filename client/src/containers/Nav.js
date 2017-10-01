@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import LogButton from './LogButton';
 
 class Nav extends Component {
+
     render() {
         return (
             <div className="navBar">
@@ -14,12 +17,14 @@ class Nav extends Component {
                             <li></li>
                             <li><Link to="/posts/new">Create a Post</Link></li>
                         </ul>
-                        <Link to="/login"><button type="button" className="btn btn-primary navbar-btn navbar-right">Sign in</button></Link>
+                        <LogButton/>
                     </div>
                 </nav>
             </div>
         )
     }
 }
-
-export default Nav;
+const mapStateToProps = ({auth}) => {
+    return {auth}
+}
+export default connect(mapStateToProps, null)(Nav);

@@ -16,9 +16,14 @@ module.exports = app => {
         successRedirect: '/api/me',
         failureRedirect: '/login',
         failureFlash: true
-    }))
+    }));
 
-    app.get('/api/me',  (req, res) => {
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.send('hi');
+    });
+
+    app.get('/api/me', (req, res) => {
         return res.status(200).send(req.user);
     });
 

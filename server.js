@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 require('./routes/user')(app);
 require('./routes/getPosts')(app);
-require('./routes/addPosts')(app);
+require('./routes/addPost')(app);
 require('./routes/getPost')(app);
 require('./routes/deletePost')(app);
 

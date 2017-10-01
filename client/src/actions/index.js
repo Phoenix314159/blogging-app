@@ -39,12 +39,21 @@ export const login = (user, callback) => async dispatch => {
     const request = await axios.post(`/api/login`, user);
     callback();
     return dispatch({
-        type: types.LOGIN
+        type: types.LOGGED_IN,
+        payload: request
+    })
+}
+
+export const logout = () => async dispatch => {
+    const request = await axios.get(`/api/logout`);
+    return dispatch({
+        type: types.LOGGED_OUT,
+        payload: request
     })
 }
 
 export const addUser = (user, callback) => async dispatch => {
-    const request = await axios.post('/api/adduser', user);
+    await axios.post('/api/adduser', user);
     callback();
     return dispatch({
         type: types.ADD_USER

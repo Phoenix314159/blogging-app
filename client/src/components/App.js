@@ -19,6 +19,7 @@ class App extends Component {
                         <Route path="/posts/new" component={PostsNew}/>
                         <Route path="/posts/:id" component={PostsShow}/>
                         <Route path="/login" component={Login}/>
+                        <Route path="/logout" component={PostsIndex}/>
                         <Route path="/adduser" component={AddUser}/>
                         <Route path="/" component={PostsIndex}/>
                     </Switch>

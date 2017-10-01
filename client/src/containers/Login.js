@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form';
-import {login} from '../actions/index';
+import {login} from '../actions';
 
 class Login extends Component {
     constructor(props) {

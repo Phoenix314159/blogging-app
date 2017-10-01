@@ -8,47 +8,58 @@ class PostsIndex extends Component {
     componentDidMount() {
         this.props.fetchPosts('/api/getposts');
     }
-
     renderPosts() {
-        return (
-            _.map(this.props.posts, post => {
-                if (post.title !== null) {
-                    return (
-                        <li className="list-group-item" key={post.id}>
-                            <Link to={`/posts/${post.id}`}>
-                                  {post.title}
-                            </Link>
-                        </li>
-                    )
-                }
-            })
-        )
-    }
-
-    render() {
-        return (
-            <div className="container postsBorder">
-                <h3 className="text-center">Posts</h3>
-                <ul className="list-group totalPosts">
-                    {this.renderPosts()}
-                </ul>
-                <div className="text-center">
-                    <Link className="btn btn-primary" to="/posts/new">
-                        Add a post
-                    </Link>
-                </div>
+        if(this.props.auth.loggedIn) {
+            return (
+                _.map(this.props.posts, post => {
+                    if (post.title !== null) {
+                        return (
+                            <li className="list-group-item" key={post.id}>
+                                <Link to={`/posts/${post.id}`}>
+                                    {post.title}
+                                </Link>
+                            </li>
+                        )
+                    }
+                })
+            )
+        }
+        return(
+            <div>
+                <h1 className="textWhite">Welcome to Blogger</h1>
             </div>
         )
+
+    }
+    render() {
+        console.log(this.props.auth.loggedIn);
+
+            return (
+                <div className="container postsBorder">
+                    <h3 className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>Posts</h3>
+                    <ul className="list-group totalPosts">
+                        {this.renderPosts()}
+                    </ul>
+                    <div className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')} >
+                        <Link className="btn btn-primary" to="/posts/new">
+                            Add a post
+                        </Link>
+                    </div>
+                </div>
+            )
+
     }
 }
 
 const mapStateToProps = state => {
-    return {posts: state.posts}
+    return {
+        posts: state.posts,
+        auth: state.auth
+    }
 }
 const mapDispatchToProps = dispatch => {
     return {
         fetchPosts: url => dispatch(fetchPosts(url))
     };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
