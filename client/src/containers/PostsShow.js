@@ -29,7 +29,7 @@ class PostsShow extends Component {
             return <div>Loading...</div>
         }
         return (
-            <div className="formWidth">
+            <div className="animated flipInY formWidth">
                 <div className="singlePost">
                     <h2>Title</h2>
                     <hr className="one"/>

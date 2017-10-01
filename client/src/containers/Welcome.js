@@ -2,23 +2,25 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Welcome extends Component {
+
     render() {
-        if (this.props.auth.userAlert) {
+        const {userAlert, name} = this.props.auth;
+        if (userAlert) {
             return (
                 <div className="animated slideInDown noAccountHeader" >
                     <h1>You Must Create an Account</h1>
                 </div>
             )
         }
-        if (this.props.auth.name) {
+        if (name) {
             return (
                 <div className="animated slideInDown welcomeHeader">
-                    <h1>Welcome {this.props.auth.name}!</h1>
+                    <h1>Welcome {name}!</h1>
                 </div>
             )
         }
         return (
-            <div></div>
+            <div>{null}</div>
         )
     }
 }

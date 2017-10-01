@@ -35,7 +35,7 @@ class AddUser extends Component {
         const {handleSubmit} = this.props;
         return(
             <div>
-                <div className="formWidth">
+                <div className="animated fadeIn formWidth">
                     <form onSubmit={handleSubmit(this.onSubmit)} className="addUserForm">
                         <Field
                             label="Name"

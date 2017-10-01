@@ -11,7 +11,8 @@ class PostsIndex extends Component {
     }
 
     renderPosts() {
-        if (this.props.auth.loggedIn && this.props.auth.currentUser) {
+        const {loggedIn, currentUser} = this.props.auth;
+        if (loggedIn && currentUser) {
             return (
                 _.map(this.props.posts, post => {
                     if (post.title !== null) {
@@ -28,21 +29,21 @@ class PostsIndex extends Component {
         }
         return (
             <div>
-                <h1 className="textWhite">Welcome to Blogger</h1>
+                <h1 className="animated slideInUp textWhite">Welcome to Blogger</h1>
             </div>
         )
 
     }
 
     render() {
-
+        const {loggedIn, userAlert} = this.props.auth;
         return (
-            <div className={"animated fadeIn container postsBorder " + (!this.props.auth.userAlert ? 'show' : 'hidden')}>
-                <h3 className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>Posts</h3>
+            <div className={"animated flipInX container postsBorder " + (!userAlert ? 'show' : 'hidden')}>
+                <h3 className={"text-center " + (loggedIn ? 'show' : 'hidden')}>Posts</h3>
                 <ul className="list-group totalPosts">
                     {this.renderPosts()}
                 </ul>
-                <div className={"text-center " + (this.props.auth.loggedIn ? 'show' : 'hidden')}>
+                <div className={"text-center " + (loggedIn ? 'show' : 'hidden')}>
                     <Link className="btn btn-primary" to="/posts/new">
                         Add a post
                     </Link>
