@@ -13,11 +13,15 @@ class Nav extends Component {
                         <div className="navbar-header">
                             <Link to="/" className="navbar-brand">Blogger</Link>
                         </div>
-                        <ul className="nav navbar-nav">
-                            <li className={(this.props.auth.loggedIn && this.props.auth.currentUser ? 'hidden' : 'show')}>
-                                <Link to="/adduser">Create an Account</Link></li>
-                        </ul>
-                        <LogButton/>
+                        <div className="centerButtons2">
+                            <div
+                                className={"btn btn-success navbar-btn navbar-right " + (this.props.auth.loggedIn && this.props.auth.currentUser ? 'hidden' : 'show')}>
+                                <Link to="/adduser">
+                                    <span className="textWhite">Create an Account</span>
+                                </Link>
+                            </div>
+                            <LogButton/>
+                        </div>
                     </div>
                 </nav>
             </div>

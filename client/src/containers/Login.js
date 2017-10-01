@@ -67,12 +67,10 @@ const validate = values => {
     }
     return errors;
 }
-const mapStateToProps = ({auth}) => {
-    return {auth}
-}
+
 export default reduxForm({
     validate,
     form: 'LoginForm'
 })(
-    connect(mapStateToProps, {login})(Login)
+    connect(null, {login})(Login)
 );

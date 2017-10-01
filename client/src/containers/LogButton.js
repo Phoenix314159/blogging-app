@@ -14,12 +14,12 @@ class LogButton extends Component {
     }
 
     render() {
-        console.log(this.props);
         if (this.props.auth.loggedIn) {
             return (
                 <Link to="/">
                     <button type="button" onClick={this.onLogout}
-                            className="btn btn-primary navbar-btn navbar-right">Log Out
+                            className="btn btn-primary navbar-btn navbar-right">
+                        <span className="textWhite">Log Out</span>
                     </button>
                 </Link>
             )
