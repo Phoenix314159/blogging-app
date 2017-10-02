@@ -8,10 +8,6 @@ const passport = require('passport'),
 
 module.exports = app => {
 
-    app.use(passport.initialize());
-
-    app.use(passport.session());
-
     app.post('/api/login', passport.authenticate('local', {
         successRedirect: '/api/user',
         failureRedirect: '/api/error',
@@ -21,8 +17,9 @@ module.exports = app => {
     app.get('/api/user', (req, res) => {
         return res.status(200).send(req.user);
     });
+
     app.get('/api/error', (req, res) => {
-        return res.status(200).send("error")
+        return res.status(500).send("an error occurred")
     });
 
     app.get('/api/logout', (req, res) => {
@@ -31,12 +28,18 @@ module.exports = app => {
     });
 
     app.post('/api/adduser', (req, res) => {
-        new User({
-            name: req.body.name,
-            emailAddress: req.body.emailAddress.toLowerCase(),
-            username: req.body.username,
-            password: hashPass(req.body.password)
-        }).save();
-        return res.status(200).send(req.user);
+        try {
+            new User({
+                name: req.body.name,
+                emailAddress: req.body.emailAddress.toLowerCase(),
+                username: req.body.username,
+                password: hashPass(req.body.password)
+            }).save();
+            res.status(200).send(req.user);
+        }
+        catch(err) {
+            console.log(err);
+            res.status(500).send('an error occurred');
+        }
     });
 };

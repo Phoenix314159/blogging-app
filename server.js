@@ -1,6 +1,6 @@
 const express = require('express'),
     config = require('./config/config'),
-    app = express(),
+    app = module.exports = express(),
     mongoose = require('mongoose');
 
 mongoose.connect(config.mongoURI);

@@ -38,7 +38,7 @@ class PostsIndex extends Component {
     render() {
         const {loggedIn, userAlert} = this.props.auth;
         return (
-            <div className={"animated flipInX container postsBorder " + (!userAlert ? 'show' : 'hidden')}>
+            <div className={"animated fadeIn container postsBorder " + (!userAlert ? 'show' : 'hidden')}>
                 <h3 className={"text-center " + (loggedIn ? 'show' : 'hidden')}>Posts</h3>
                 <ul className="list-group totalPosts">
                     {this.renderPosts()}

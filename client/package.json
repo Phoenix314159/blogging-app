@@ -2,6 +2,11 @@
   "name": "blogging-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:4124"
+    }
+  },
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.16.2",
@@ -18,11 +23,6 @@
     "redux-form": "^7.0.4",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0"
-  },
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:4124"
-    }
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/scss -o src/styles/css",
