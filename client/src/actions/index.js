@@ -7,7 +7,7 @@ export const fetchPosts = url => async dispatch => {
         type: types.FETCH_POSTS,
         payload: request
     })
-}
+};
 
 export const createPost = (values, callback) => async dispatch => {
     const request = await axios.post(`/api/addpost`, values);
@@ -16,7 +16,7 @@ export const createPost = (values, callback) => async dispatch => {
         type: types.CREATE_POST,
         payload: request
     })
-}
+};
 
 export const fetchPost = id => async dispatch => {
     const request = await axios.get(`/api/getpost?id=${id}`);
@@ -24,7 +24,7 @@ export const fetchPost = id => async dispatch => {
         type: types.FETCH_POST,
         payload: request
     })
-}
+};
 
 export const deletePost = (id, callback) => async dispatch => {
     const request = await axios.delete(`/api/deletepost?id=${id}`);
@@ -33,7 +33,7 @@ export const deletePost = (id, callback) => async dispatch => {
         type: types.DELETE_POST,
         payload: id
     })
-}
+};
 
 export const login = (user, callback) => async dispatch => {
     const request = await axios.post(`/api/login`, user);
@@ -42,7 +42,7 @@ export const login = (user, callback) => async dispatch => {
         type: types.LOGGED_IN,
         payload: request.data
     })
-}
+};
 
 export const logout = () => async dispatch => {
     const request = await axios.get(`/api/logout`);
@@ -50,13 +50,27 @@ export const logout = () => async dispatch => {
         type: types.LOGGED_OUT,
         payload: request
     })
-}
+};
 
 export const addUser = (user, callback) => async dispatch => {
     await axios.post('/api/adduser', user);
     callback();
     return dispatch({
         type: types.ADD_USER
+    })
+};
+
+export const removeWelcome = boolean => dispatch => {
+    return dispatch({
+        type: types.REMOVE_WELCOME,
+        payload: boolean
+    })
+};
+
+export const changeUserAlert = boolean => dispatch => {
+    return dispatch({
+        type: types.CHANGE_USER_ALERT,
+        payload: boolean
     })
 }
 

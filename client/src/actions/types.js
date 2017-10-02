@@ -5,5 +5,7 @@ export const types = {
     DELETE_POST: 'delete_post',
     LOGGED_IN: 'logged_in',
     LOGGED_OUT: 'logged_out',
-    ADD_USER: 'add_user'
+    ADD_USER: 'add_user',
+    REMOVE_WELCOME: 'remove_welcome',
+    CHANGE_USER_ALERT: 'change_user_alert'
 };

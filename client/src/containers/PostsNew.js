@@ -49,6 +49,7 @@ class PostsNew extends Component {
 
     render() {
         const {handleSubmit} = this.props;
+        this.props.auth = false;
         return (
             <div className="animated fadeIn formWidth">
                 <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">

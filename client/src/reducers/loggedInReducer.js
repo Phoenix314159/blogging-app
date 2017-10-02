@@ -1,22 +1,18 @@
 import {types} from '../actions/types';
-const initialState = {
-    loggedIn: false,
-    newUser: false,
-    currentUser: false,
-    signUp: false,
-    userId: null,
-    name: null,
-    userAlert: false
-}
+import initialState from './initialLogInState';
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.LOGGED_IN:
-            console.log(action.payload)
             if(action.payload === "an error occurred"){
                 return Object.assign({}, state, {userAlert: true});
             } else {
                 return Object.assign({}, state, {loggedIn: true, currentUser: true, userId: action.payload._id, name: action.payload.name});
             }
+        case types.REMOVE_WELCOME:
+            return Object.assign({}, state, {removeWelcome: action.payload});
+        case types.CHANGE_USER_ALERT:
+            return Object.assign({}, state, {userAlert: action.payload});
         case types.LOGGED_OUT:
             return Object.assign({}, state, {loggedIn: false, newUser: false, currentUser: false, userId: null, name:null, userAlert: false});
         case types.ADD_USER:

@@ -2,12 +2,16 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchPosts} from '../actions';
+import {fetchPosts, removeWelcome} from '../actions';
 
 class PostsIndex extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         this.props.fetchPosts(`/api/getposts`);
+        this.props.removeWelcome(false);
     }
 
     renderPosts() {
@@ -59,7 +63,8 @@ const mapStateToProps = ({posts, auth}) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPosts: url => dispatch(fetchPosts(url))
+        fetchPosts: url => dispatch(fetchPosts(url)),
+        removeWelcome: boolean => dispatch(removeWelcome(boolean))
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);

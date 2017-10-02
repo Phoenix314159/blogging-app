@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form';
-import {login} from '../actions';
+import {login, changeUserAlert} from '../actions';
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
 
+    }
+    componentWillMount() {
+        this.props.changeUserAlert(false);
     }
 
     renderField(field) {
@@ -77,5 +80,5 @@ export default reduxForm({
     validate,
     form: 'LoginForm'
 })(
-    connect(mapStateToProps, {login})(Login)
+    connect(mapStateToProps, {login, changeUserAlert})(Login)
 );

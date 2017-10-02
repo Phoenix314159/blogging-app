@@ -24,8 +24,7 @@ body {
 }
 
 .formWidth {
-  margin-top: 8vh;
-  display: flex;
+  margin-top: 8vh; display: flex;
   justify-content: center;
   label {
     color: whitesmoke;
@@ -152,4 +151,26 @@ form a {
   p {
     margin-bottom: 5vh;
   }
+}
+
+@media only screen and (max-width: 1440px) {
+  .noAccountHeader {
+    margin-left: 28vw;
+    margin-right: 28vw;
+  }
+  .welcomeHeader {
+    margin-left: 28vw;
+    margin-right: 28vw;
+  }
+  .centerButtons2{
+    button{
+      margin-right: 1px;
+  }
+  }
+  .postsBorder {
+    width: 70%;
+  }
+  //.formWidth {
+  //  margin-top: 3vh;
+  //}
 }
