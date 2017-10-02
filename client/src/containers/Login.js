@@ -31,6 +31,21 @@ class Login extends Component {
             </div>
         )
     }
+    renderPass(field) {
+        const {meta: {touched, error}} = field;
+        let className = `form-control ${touched && error ? 'redInput' : ''}`;
+        return (
+            <div className="form-group">
+                <label>{field.label}</label>
+                <input
+                    className={className}
+                    type="password"
+                    {...field.input}
+                />
+                <div className="error"> {touched ? error : ''}</div>
+            </div>
+        )
+    }
 
     onSubmit(values) {
         this.props.login(values, () => {
@@ -53,7 +68,7 @@ class Login extends Component {
                         <Field
                             label="Password"
                             name="password"
-                            component={this.renderField}
+                            component={this.renderPass}
                         />
                         <div className="centerButtons">
                             <button type="submit" className="btn btn-primary">Login</button>
