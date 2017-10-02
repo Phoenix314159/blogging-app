@@ -6,5 +6,6 @@ export default {
     userId: null,
     name: null,
     userAlert: false,
-    removeWelcome: false
+    removeWelcome: false,
+    pleaseLogin: false
 }

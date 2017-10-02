@@ -2,11 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Welcome extends Component {
-
     render() {
-        console.log(this.props.auth.removeWelcome)
         const {userAlert, name, removeWelcome} = this.props.auth;
-        console.log(userAlert)
         if(!removeWelcome){
             if (userAlert) {
                 return (

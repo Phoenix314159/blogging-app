@@ -8,8 +8,10 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        this.renderForm = this.renderForm.bind(this);
 
     }
+
     componentWillMount() {
         this.props.changeUserAlert(false);
     }
@@ -37,7 +39,7 @@ class Login extends Component {
 
     }
 
-    render() {
+    renderForm() {
         const {handleSubmit} = this.props;
         return (
             <div>
@@ -62,6 +64,25 @@ class Login extends Component {
             </div>
         )
     }
+
+    render() {
+        const {pleaseLogin} = this.props.auth;
+        if (pleaseLogin) {
+            return (
+                <div>
+                    <h1 className="animated slideInDown pleaseLoginHeader" >Please Login</h1>
+                    {this.renderForm()}
+                </div>
+            )
+        }
+        return(
+            <div>
+                {this.renderForm()}
+            </div>
+        )
+    }
+
+
 }
 const validate = values => {
     const errors = {};

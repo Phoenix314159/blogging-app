@@ -72,5 +72,12 @@ export const changeUserAlert = boolean => dispatch => {
         type: types.CHANGE_USER_ALERT,
         payload: boolean
     })
+};
+
+export const pleaseLogin = boolean => dispatch => {
+    return dispatch({
+        type: types.PLEASE_LOGIN,
+        payload: boolean
+    })
 }
 

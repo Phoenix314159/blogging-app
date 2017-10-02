@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form';
-import {addUser, changeUserAlert} from '../actions/index';
+import {addUser, changeUserAlert, pleaseLogin} from '../actions';
 
 class AddUser extends Component {
     constructor(props) {
@@ -11,6 +11,9 @@ class AddUser extends Component {
     }
     componentWillMount() {
         this.props.changeUserAlert(false);
+    }
+    componentWillUnmount() {
+        this.props.pleaseLogin(true);
     }
 
     renderField(field) {
@@ -91,6 +94,6 @@ export default reduxForm({
     validate,
     form: 'SignUpForm'
 })(
-    connect(null, {addUser, changeUserAlert})(AddUser)
+    connect(null, {addUser, changeUserAlert, pleaseLogin})(AddUser)
 );
 

@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {loggedIn: false, newUser: false, currentUser: false, userId: null, name:null, userAlert: false});
         case types.ADD_USER:
             return Object.assign({}, state, {newUser: true, signUp: true, userAlert: false});
+        case types.PLEASE_LOGIN:
+            return Object.assign({}, state, {pleaseLogin: action.payload});
         default:
             return state;
     }

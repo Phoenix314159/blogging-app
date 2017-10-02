@@ -7,5 +7,6 @@ export const types = {
     LOGGED_OUT: 'logged_out',
     ADD_USER: 'add_user',
     REMOVE_WELCOME: 'remove_welcome',
-    CHANGE_USER_ALERT: 'change_user_alert'
+    CHANGE_USER_ALERT: 'change_user_alert',
+    PLEASE_LOGIN: 'please_login'
 };

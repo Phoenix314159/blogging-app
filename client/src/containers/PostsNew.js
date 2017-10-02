@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {createPost} from '../actions/index';
+import {createPost, removeWelcome} from '../actions';
 
 class PostsNew extends Component {
     constructor(props){
         super(props)
         this.onSubmit = this.onSubmit.bind(this);
+    }
+    componentWillMount() {
+        this.props.removeWelcome(true);
     }
     renderField(field) {
         const {meta: {touched, error}} = field;
@@ -49,7 +52,6 @@ class PostsNew extends Component {
 
     render() {
         const {handleSubmit} = this.props;
-        this.props.auth = false;
         return (
             <div className="animated fadeIn formWidth">
                 <form onSubmit={handleSubmit(this.onSubmit)} className="formBorder">
@@ -96,5 +98,5 @@ export default reduxForm({
     validate,
     form: 'PostsNewForm'
 })(
-    connect(null, {createPost})(PostsNew)
+    connect(null, {createPost, removeWelcome})(PostsNew)
 );

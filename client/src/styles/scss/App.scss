@@ -64,6 +64,19 @@ body {
   box-shadow: $shadow;
   margin-top: 3vh;
 }
+.pleaseLoginHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ghostwhite;
+  border: 2px solid black;
+  border-radius: 7pt;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  box-shadow: $shadow;
+  height: 6vh;
+  margin-top: 3vh;
+}
 
 .formBorder {
   background-color: #4a148c;

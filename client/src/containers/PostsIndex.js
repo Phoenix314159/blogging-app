@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchPosts, removeWelcome} from '../actions';
+import {fetchPosts, removeWelcome, pleaseLogin} from '../actions';
 
 class PostsIndex extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class PostsIndex extends Component {
     componentDidMount() {
         this.props.fetchPosts(`/api/getposts`);
         this.props.removeWelcome(false);
+        this.props.pleaseLogin(false);
     }
 
     renderPosts() {
@@ -64,7 +65,8 @@ const mapStateToProps = ({posts, auth}) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPosts: url => dispatch(fetchPosts(url)),
-        removeWelcome: boolean => dispatch(removeWelcome(boolean))
+        removeWelcome: boolean => dispatch(removeWelcome(boolean)),
+        pleaseLogin: boolean => dispatch(pleaseLogin(boolean))
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
