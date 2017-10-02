@@ -19,7 +19,7 @@ module.exports = app => {
     });
 
     app.get('/api/error', (req, res) => {
-        return res.status(500).send("an error occurred")
+        return res.status(200).send("an error occurred")
     });
 
     app.get('/api/logout', (req, res) => {

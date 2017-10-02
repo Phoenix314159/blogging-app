@@ -11,7 +11,8 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.LOGGED_IN:
-            if(action.payload === "error"){
+            console.log(action.payload)
+            if(action.payload === "an error occurred"){
                 return Object.assign({}, state, {userAlert: true});
             } else {
                 return Object.assign({}, state, {loggedIn: true, currentUser: true, userId: action.payload._id, name: action.payload.name});
