@@ -66,8 +66,8 @@ class Login extends Component {
     }
 
     render() {
-        const {pleaseLogin} = this.props.auth;
-        if (pleaseLogin) {
+        const {pleaseLogin, newUser} = this.props.auth;
+        if (pleaseLogin && newUser) {
             return (
                 <div>
                     <h1 className="animated slideInDown pleaseLoginHeader" >Please Login</h1>
