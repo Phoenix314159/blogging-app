@@ -79,5 +79,5 @@ export const pleaseLogin = boolean => dispatch => {
         type: types.PLEASE_LOGIN,
         payload: boolean
     })
-}
+};
 

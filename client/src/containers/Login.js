@@ -70,7 +70,7 @@ class Login extends Component {
         if (pleaseLogin && newUser) {
             return (
                 <div>
-                    <h1 className="animated slideInDown pleaseLoginHeader" >Please Login</h1>
+                    <h1 className="animated slideInDown pleaseLoginHeader">Please Login</h1>
                     {this.renderForm()}
                 </div>
             )

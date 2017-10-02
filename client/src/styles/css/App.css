@@ -154,3 +154,16 @@ form a {
     margin-right: 1px; }
   .postsBorder {
     width: 70%; } }
+
+@media only screen and (max-width: 1024px) {
+  .noAccountHeader {
+    margin-left: 20vw;
+    margin-right: 20vw; }
+  .pleaseLoginHeader {
+    margin-left: 30vw;
+    margin-right: 30vw; } }
+
+@media only screen and (max-width: 768px) {
+  .noAccountHeader {
+    margin-left: 15vw;
+    margin-right: 15vw; } }
