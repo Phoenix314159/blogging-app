@@ -61,7 +61,7 @@ class PostsIndex extends Component {
 
 const mapStateToProps = ({posts, auth}) => {
     return {posts, auth}
-}
+};
 const mapDispatchToProps = dispatch => {
     return {
         fetchPosts: url => dispatch(fetchPosts(url)),

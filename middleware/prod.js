@@ -5,7 +5,7 @@ module.exports = (app, express, config) => {
     app.get('*', (req, res) => {
         res.sendFile(config.dirname + '/client/build/index.html');
     })
-}
+};
 
 
 

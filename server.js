@@ -17,4 +17,4 @@ require('./routes/posts')(app);
 
 app.listen(config.port, () => {
     console.log(`listening on port ${config.port}`);
-})
+});

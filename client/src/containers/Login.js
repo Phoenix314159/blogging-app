@@ -96,8 +96,6 @@ class Login extends Component {
             </div>
         )
     }
-
-
 }
 const validate = values => {
     const errors = {};

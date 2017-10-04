@@ -35,10 +35,9 @@ class PostsNew extends Component {
             <div className="form-group">
                 <label>{field.label}</label>
                 <textarea
-                    className={className}
-                    name="text" rows="10" cols="10" wrap="soft"
+                    className={className} name="text" rows="10" cols="10" wrap="soft"
                     {...field.input}
-                ></textarea>
+                />
                 <div className="error"> {touched ? error : ''}</div>
             </div>
         )

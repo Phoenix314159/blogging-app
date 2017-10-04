@@ -7,7 +7,7 @@ const passport = require('passport'),
 const verifyPassword = (submittedPassword, userPassword) => {
     let result =  bcrypt.compareSync(submittedPassword, userPassword);
     return result;
-}
+};
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -17,7 +17,7 @@ passport.deserializeUser((id, done) => {
     User.findById(id, (err,user) => {
         done(null, user);
     });
-})
+});
 
 passport.use('local', new LocalStrategy({
     usernameField: 'username',
@@ -29,7 +29,8 @@ passport.use('local', new LocalStrategy({
         if (err) return done(err);
         if (user) return done(null, user);
         if (!user) return done(null, false);
-    })
+    });
+
     if (existingUser && verifyPassword(req.body.password, password)) {
         return done(null, existingUser);
     }
