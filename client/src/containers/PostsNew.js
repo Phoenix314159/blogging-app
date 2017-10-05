@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import {createPost, removeWelcome} from '../actions';
 
 class PostsNew extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super();
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentWillMount() {

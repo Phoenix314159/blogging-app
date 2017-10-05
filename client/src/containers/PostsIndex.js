@@ -5,9 +5,6 @@ import {Link} from 'react-router-dom';
 import {fetchPosts, removeWelcome, pleaseLogin} from '../actions';
 
 class PostsIndex extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.fetchPosts(`/api/getposts`);

@@ -4,7 +4,7 @@
   "private": true,
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:4124"
+      "target": "http://localhost:4336"
     }
   },
   "dependencies": {
@@ -27,7 +27,7 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/scss -o src/styles/css",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss -o src/styles/css --watch --recursive",
-    "start-js": "set PORT=3126 && react-scripts start",
+    "start-js": "set PORT=3127 && react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",

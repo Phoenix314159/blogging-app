@@ -4,8 +4,8 @@ import {fetchPost, deletePost, removeWelcome} from '../actions';
 import {Link} from 'react-router-dom';
 
 class PostsShow extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.onDeleteClick = this.onDeleteClick.bind(this);
     }
 

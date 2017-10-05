@@ -5,8 +5,8 @@ import {Field, reduxForm} from 'redux-form';
 import {addUser, changeUserAlert, pleaseLogin} from '../actions';
 
 class AddUser extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentWillMount() {
