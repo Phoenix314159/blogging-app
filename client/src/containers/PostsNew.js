@@ -13,7 +13,7 @@ class PostsNew extends Component {
 
   renderField (field) {
     const {meta: {touched, error}} = field
-    let className = `form-control ${touched && error ? 'redInput' : ''}`
+    const className = `form-control ${touched && error ? 'redInput' : ''}`
     return (
       <div className="form-group">
         <label>{field.label}</label>
@@ -29,7 +29,7 @@ class PostsNew extends Component {
 
   renderContent (field) {
     const {meta: {touched, error}} = field
-    let className = `form-control ${touched && error ? 'redInput' : ''}`
+    const className = `form-control ${touched && error ? 'redInput' : ''}`
     return (
       <div className="form-group">
         <label>{field.label}</label>
@@ -80,14 +80,14 @@ class PostsNew extends Component {
 }
 
 const validate = values => {
-  const errors = {}
-  if (!values.title) {
+  const errors = {}, {title, categories, content} = values
+  if (!title) {
     errors.title = 'Enter a title!'
   }
-  if (!values.categories) {
+  if (!categories) {
     errors.categories = 'Enter some categories!'
   }
-  if (!values.content) {
+  if (!content) {
     errors.content = 'Enter some content!'
   }
   return errors

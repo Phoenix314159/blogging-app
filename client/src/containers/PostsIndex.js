@@ -36,7 +36,6 @@ class PostsIndex extends Component {
         <h1 className="animated slideInUp textWhite">Welcome to Blogger</h1>
       </div>
     )
-
   }
 
   render () {
