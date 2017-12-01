@@ -1,53 +1,57 @@
-const config = require('../config/config'),
-    axios = require('axios'),
-    requireLogin = require('../middleware/requireLogin'),
-    isAuthed = require('../middleware/auth');
+const {url, api_key} = require('../config/config'),
+  axios = require('axios'),
+  requireLogin = require('../middleware/requireLogin'),
+  {auth} = require('../middleware/auth'),
+  error = 'an error occurred'
 
 module.exports = app => {
 
-    app.get('/api/getposts', requireLogin, isAuthed.auth, async (req, res) => {
-        try{
-            let response = await axios.get(`${config.url}?${config.api_key}`);
-            res.status(200).send(response.data);
-        }
-        catch(err) {
-            console.log(err.response.data);
-            res.send('an error occurred');
-        }
-    });
+  app.get('/api/getposts', requireLogin, auth, async (req, res) => {
+    try {
+      const {data} = await axios.get(`${url}?${api_key}`)
+      res.status(200).send(data)
+    }
+    catch (err) {
+      console.log(err.response.data)
+      res.send(error)
+    }
+  })
 
-    app.get('/api/getpost', requireLogin, isAuthed.auth, async (req, res) => {
-        try {
-            let response = await axios.get(`${config.url}/${req.query.id}?${config.api_key}`);
-            res.status(200).send(response.data);
-        }
-        catch(err){
-            console.log(err);
-            res.status(500).send('an error occurred');
-        }
+  app.get('/api/getpost', requireLogin, auth, async (req, res) => {
+    const {id} = req.query
+    try {
+      const {data} = await axios.get(`${url}/${id}?${api_key}`)
+      res.status(200).send(data)
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).send(error)
+    }
 
-    });
+  })
 
-    app.post('/api/addpost', requireLogin, isAuthed.auth, async (req, res) => {
-        try {
-            let response = await axios.post(`${config.url}?${config.api_key}`, req.body);
-            res.status(200).send(response.data);
-        }
-        catch(err) {
-            console.log(err);
-            res.status(500).send('an error occurred');
-        }
+  app.post('/api/addpost', requireLogin, auth, async (req, res) => {
+    const {body} = req
+    try {
+      const {data} = await axios.post(`${url}?${api_key}`, body)
+      res.status(200).send(data)
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).send(error)
+    }
 
-    });
+  })
 
-    app.delete('/api/deletepost', requireLogin, isAuthed.auth, async (req, res) => {
-        try {
-            let response = await axios.delete(`${config.url}/${req.query.id}?${config.api_key}`);
-            res.status(200).send(response.data);
-        }
-       catch(err) {
-           console.log(err);
-           res.status(500).send('an error occurred');
-       }
-    });
-};
+  app.delete('/api/deletepost', requireLogin, auth, async (req, res) => {
+    const {id} = req.query
+    try {
+      const {data} = await axios.delete(`${url}/${id}?${api_key}`)
+      res.status(200).send(data)
+    }
+    catch (err) {
+      console.log(err)
+      res.status(500).send('an error occurred')
+    }
+  })
+}

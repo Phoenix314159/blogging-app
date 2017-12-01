@@ -5,10 +5,7 @@ import {Field, reduxForm} from 'redux-form';
 import {addUser, changeUserAlert, pleaseLogin} from '../actions';
 
 class AddUser extends Component {
-    constructor() {
-        super();
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+
     componentWillMount() {
         this.props.changeUserAlert(false);
     }
@@ -31,9 +28,10 @@ class AddUser extends Component {
             </div>
         )
     }
-    onSubmit(values) {
-        this.props.addUser(values, () => {
-            this.props.history.push('/login');
+    onSubmit = values => {
+        const {addUser, history} = this.props
+        addUser(values, () => {
+            history.push('/login');
         });
     }
 
@@ -88,7 +86,7 @@ const validate = values => {
         errors.password = 'Enter a Password';
     }
     return errors;
-}
+};
 
 export default reduxForm({
     validate,

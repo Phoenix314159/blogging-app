@@ -1,13 +1,13 @@
 const cookieSession = require('cookie-session'),
-    config = require('../config/config'),
+  {cookieAge, cookieKey} = require('../config/config'),
     bodyParser = require('body-parser'),
     passport = require('passport');
 
 module.exports = app => {
     app.use(
         cookieSession({
-            maxAge: config.cookieAge,
-            keys: [config.cookieKey]
+            maxAge: cookieAge,
+            keys: [cookieKey]
         })
     );
 
