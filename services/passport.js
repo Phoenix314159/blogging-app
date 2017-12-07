@@ -23,15 +23,16 @@ passport.use('local', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
     passReqToCallback : true
-}, (req, username, password, done) => {
+}, (req, username, enteredPassword, done) => {
+    const {password} = req.body
     username = username.toLowerCase();
-    let existingUser = User.findOne({ username }, (err, user) => {
+    const existingUser = User.findOne({ username }, (err, user) => {
         if (err) return done(err);
         if (user) return done(null, user);
         if (!user) return done(null, false);
     });
 
-    if (existingUser && verifyPassword(req.body.password, password)) {
+    if (existingUser && verifyPassword(password, enteredPassword)) {
         return done(null, existingUser);
     }
 }));
