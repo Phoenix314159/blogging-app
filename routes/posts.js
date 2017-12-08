@@ -12,7 +12,7 @@ module.exports = app => {
       res.status(200).send(data)
     }
     catch (err) {
-      console.log(err.response.data)
+      console.log(err)
       res.send(error)
     }
   })
@@ -27,7 +27,6 @@ module.exports = app => {
       console.log(err)
       res.status(500).send(error)
     }
-
   })
 
   app.post('/api/addpost', requireLogin, auth, async (req, res) => {

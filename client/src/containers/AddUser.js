@@ -14,15 +14,15 @@ class AddUser extends Component {
     }
 
     renderField(field) {
-        const {meta: {touched, error}} = field;
-        let className = `form-control ${touched && error ? 'redInput' : ''}`;
+        const {meta: {touched, error}, label, input} = field;
+        const className = `form-control ${touched && error ? 'redInput' : ''}`;
         return (
             <div className="form-group">
-                <label>{field.label}</label>
+                <label>{label}</label>
                 <input
                     className={className}
                     type="text"
-                    {...field.input}
+                    {...input}
                 />
                 <div className="error"> {touched ? error : ''}</div>
             </div>
@@ -72,17 +72,18 @@ class AddUser extends Component {
     }
 }
 const validate = values => {
-    const errors = {};
-    if (!values.name) {
+    const errors = {}
+    const {name, emailAddress, username, password} = values
+    if (!name) {
         errors.name = 'Enter a Name';
     }
-    if (!values.emailAddress) {
+    if (!emailAddress) {
         errors.emailAddress = 'Enter an Email Address';
     }
-    if (!values.username) {
+    if (!username) {
         errors.username = 'Enter a Username';
     }
-    if (!values.password) {
+    if (!password) {
         errors.password = 'Enter a Password';
     }
     return errors;
